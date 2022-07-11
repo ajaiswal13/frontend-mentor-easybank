@@ -1,0 +1,95 @@
+.footer{
+     
+      background-color: $darkBlue;
+      color: $white;
+      a{
+        text-decoration: none;
+        color:$white;
+      }
+
+      &__content{
+        text-align: center;
+        display:grid;
+        grid-auto-columns: repeat(3,1fr) 2fr; 
+        grid-auto-columns: repeat(2,1fr);
+        grid-template-areas: 'logo'
+                             'social'
+                             'links1'
+                             'links2'
+                             'cta';
+        @include breakpoint-up(medium) {
+            grid-template-areas: 'logo links1 links2 cta'
+                                 'social links1 links2 cta';
+            justify-items: start;
+        }
+      }
+
+      /* &__content:nth-child(1){
+        grid-template-areas: one;
+      }
+      &__content:nth-child(2){
+        grid-template-areas: two;
+      }
+      &__content:nth-child(3){
+        grid-template-areas: three;
+      }
+      &__content:nth-child(4){
+        grid-template-areas: four;
+      }*/
+    
+     
+      &__logo{
+          display:block;
+          grid-area: logo;
+          margin-bottom:1.875rem;
+      }
+
+      &__social{
+           a:not(:last-child){
+            margin-right:1rem;
+          }
+          align-self: end;
+          grid-area: social;
+          margin-bottom:1.875rem;
+      }
+
+      &__links{
+       
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           margin-bottom:1.875rem;
+
+          @include breakpoint-up(medium) {
+            align-items: start;
+          }
+           a:not(:last-child){
+            margin-bottom:1.875rem;
+           }
+           &.col1{
+            grid-area: links1;
+           }
+
+           &.col2{
+            grid-area: links2;
+           }
+           
+      }
+
+      &__cta{
+           a.button{
+            margin-bottom:1.875rem;
+           }
+           grid-area: cta;
+
+           @include breakpoint-up(medium){
+                justify-self: end;
+                text-align: right;
+           }
+      }
+
+      &__copyright{
+        margin-top:2rem;
+        color: $grayishBlue;
+      }
+}
